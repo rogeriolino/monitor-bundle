@@ -107,9 +107,9 @@
                         </form>
                         <hr>
                         <div class="result">
-                            <table class="table table-bordered">
+                            <table class="table table-hover">
                                 <thead>
-                                    <tr>
+                                    <tr class="table-primary">
                                         <th>{{ 'label.ticket.number'|trans }}</th>
                                         <th>{{ 'label.service'|trans }}</th>
                                         <th>{{ 'label.ticket.arrival_date'|trans }}</th>
@@ -177,7 +177,7 @@
                         <input type="hidden" v-bind:valuee="atendimento.id" />
                         <fieldset>
                             <legend>{{ 'modal.attendance.ticket'|trans }}</legend>
-                            <table class="table table-bordered">
+                            <table class="table border">
                                 <tr>
                                     <th>
                                         {{ 'label.ticket.number'|trans }}
@@ -262,16 +262,16 @@
                         </fieldset>
                                 
                                 
-                        <fieldset v-if="atendimento.cliente">
+                        <fieldset>
                             <legend>{{ 'label.customer'|trans }}</legend>
-                            <table class="table table-bordered">
+                            <table class="table border">
                                 <tr>
                                     <th>
                                         {{ 'label.customer.name'|trans }}
                                     </th>
                                     <td>
                                         {% verbatim %}
-                                            {{atendimento.cliente.nome}}
+                                            {{atendimento.cliente?.nome}}
                                         {% endverbatim %}
                                     </td>
                                 </tr>
@@ -281,7 +281,7 @@
                                     </th>
                                     <td>
                                         {% verbatim %}
-                                            {{atendimento.cliente.documento}}
+                                            {{atendimento.cliente?.documento}}
                                         {% endverbatim %}
                                     </td>
                                 </tr>
