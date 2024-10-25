@@ -4,31 +4,24 @@
 
 {% block body %}
     <div id="monitor">
-        <div class="row">
-            <div class="col-8">
+        <div class="d-flex">
+            <div>
                 <h1>
-                    <i class="fa fa-desktop" aria-hidden="true"></i>
-                    {{ 'title'|trans }}
-                    <small>
-                        {{ 'subtitle'|trans }}
-                    </small>
+                    <i class="fa fa-desktop" aria-hidden="true"></i> {{ 'title'|trans }}
                 </h1>
+                <p>{{ 'subtitle'|trans }}</p>
             </div>
-            <div class="col-4">
-                <form class="pull-right" role="search"  v-on:submit.prevent="consulta">
-                    <div class="input-group">
-                        <input type="text" class="form-search form-control" placeholder="{{ 'placeholder.search'|trans }}" v-model="search">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-primary" title="{{ 'button.find'|trans }}">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
+            <form class="ms-auto" role="search"  v-on:submit.prevent="consulta">
+                <div class="input-group">
+                    <input type="text" class="form-search form-control" placeholder="{{ 'placeholder.search'|trans }}" v-model="search">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary" title="{{ 'button.find'|trans }}">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
-
-        <hr>
         
         <div class="servicos row" v-cloak>
             <div class="col-md-12" v-if="servicos.length===0">
