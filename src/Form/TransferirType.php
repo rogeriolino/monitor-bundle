@@ -28,7 +28,7 @@ class TransferirType extends AbstractType
     ) {
     }
 
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $servicos = $options['servicos'];
         $prioridades = $this
@@ -58,7 +58,7 @@ class TransferirType extends AbstractType
         ;
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
             ->setRequired('servicos')
