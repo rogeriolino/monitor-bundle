@@ -31,14 +31,7 @@ class TransferirType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $servicos = $options['servicos'];
-        $prioridades = $this
-            ->prioridadeRepository
-            ->createQueryBuilder('e')
-            ->where('e.ativo = TRUE')
-            ->orderBy('e.peso', 'ASC')
-            ->addOrderBy('e.nome', 'ASC')
-            ->getQuery()
-            ->getResult();
+        $prioridades = $this->prioridadeRepository->findAtivas();
 
         $builder
             ->add('servico', ChoiceType::class, [
