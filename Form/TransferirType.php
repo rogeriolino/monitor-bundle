@@ -42,6 +42,7 @@ class TransferirType extends AbstractType
                     return $repo
                         ->createQueryBuilder('e')
                         ->where('e.ativo = TRUE')
+                        ->andWhere('e.deletedAt IS NULL')
                         ->orderBy('e.peso', 'ASC')
                         ->addOrderBy('e.nome', 'ASC');
                 },
